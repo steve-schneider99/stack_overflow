@@ -1,0 +1,14 @@
+<h1>Ask a new question..</h1>
+
+<% if current_user == nil %>
+  <p>Please log in to post a question...</p>
+<% else %>
+  <h3>You are currently logged in as : <%= current_user.email %></h3>
+  <br>
+  <%= form_for Question.new do |f| %>
+  <%= f.label :question %>
+  <%= f.text_field :question %>
+  <%= f.hidden_field :author, :value => current_user.email %>
+  <%= f.submit "Ask Your Question" %>
+  <% end %>
+<% end %>

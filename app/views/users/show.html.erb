@@ -1,0 +1,11 @@
+<h1>Account Info</h1>
+
+<p>Account Email: <%= current_user.email %></p>
+
+<h3>Your Questions</h3>
+
+<% current_user.questions.each do |question| %>
+  <ul>
+    <li><% question.question %></li>
+  </ul>
+<% end %>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Stack Overflow</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<%= flash[:alert] %>
+<%= flash[:notice] %>
+  <nav>
+    <ul>
+      <li><a href="/log-in">Log In</a></li>
+      <li><a href="/log-out">Log Out</a></li>
+      <li><a href="/users/new">Sign Up</a></li>
+      <li><a href="/users">Users List</a></li>
+      <li><a href="/questions">Questions List</a></li>
+      <li><a href="/questions/new">Ask a Question</a></li>
+    </ul>
+  </nav>
+
+  <% if current_user == nil %>
+  <% else %>
+    <p>Current User: <%= current_user.email %></p>
+  <% end %>
+
+<%= yield %>
+
+</body>
+</html>
