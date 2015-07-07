@@ -6,6 +6,6 @@
 
 <% current_user.questions.each do |question| %>
   <ul>
-    <li><% question.question %></li>
+    <li><%= question.question %> | <%= link_to "edit this question", question_path(question) %></li>
   </ul>
 <% end %>

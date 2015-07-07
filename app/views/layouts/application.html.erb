@@ -12,17 +12,21 @@
   <nav>
     <ul>
       <li><a href="/log-in">Log In</a></li>
-      <li><a href="/log-out">Log Out</a></li>
       <li><a href="/users/new">Sign Up</a></li>
-      <li><a href="/users">Users List</a></li>
+      <li><a href="/users">Users List - Admin Only</a></li>
       <li><a href="/questions">Questions List</a></li>
-      <li><a href="/questions/new">Ask a Question</a></li>
+      <% if current_user == nil %>
+      <% else %>
+        <li><a href="/questions/new">Ask a Question</a></li>
+        <li><%= link_to "Account Info", user_path(current_user) %></li>
+        <li><a href="/log-out">Log Out</a></li>
+      <% end %>
     </ul>
   </nav>
 
   <% if current_user == nil %>
   <% else %>
-    <p>Current User: <%= current_user.email %></p>
+    <p>Currently logged in as: <%= current_user.email %></p>
   <% end %>
 
 <%= yield %>

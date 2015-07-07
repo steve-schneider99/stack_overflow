@@ -7,7 +7,6 @@ class UsersController < ApplicationController
   end
 
   def new
-
   end
 
   def create
@@ -19,6 +18,10 @@ class UsersController < ApplicationController
       flash[:alert] = "Account could not be created - Try again."
       render :new
     end
+  end
+
+  def edit
+    
   end
 
 

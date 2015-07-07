@@ -1,0 +1,13 @@
+<h1><%= @question.question %></h1>
+
+<h3>Author: <%= @question.author %></h3>
+
+<h3>Edit this question:</h3>
+
+<%= form_for Question.new do |f| %>
+<%= f.label :question %>
+<%= f.text_field :question %>
+<%= f.submit "Edit Your Question" %>
+<% end %>
+<br>
+<%= link_to "Return to your Account", user_path(current_user) %>
