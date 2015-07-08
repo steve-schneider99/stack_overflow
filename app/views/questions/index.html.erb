@@ -4,7 +4,7 @@
   <% if @questions.any? %>
   <% @questions.each do |question| %>
     <li>
-      <p><%= question.question %> | Author: <%= question.author %> | </p>  
+      <p><%= question.question %> | Author: <%= question.author %> | <%= link_to 'Answer this question', new_question_answer_path(question) %></p>  
     </li>
   <% end %>
 </ul>

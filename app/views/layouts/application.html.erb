@@ -11,11 +11,11 @@
 <%= flash[:notice] %>
   <nav>
     <ul>
-      <li><a href="/log-in">Log In</a></li>
       <li><a href="/users/new">Sign Up</a></li>
       <li><a href="/users">Users List - Admin Only</a></li>
       <li><a href="/questions">Questions List</a></li>
       <% if current_user == nil %>
+      <li><a href="/log-in">Log In</a></li>
       <% else %>
         <li><a href="/questions/new">Ask a Question</a></li>
         <li><%= link_to "Account Info", user_path(current_user) %></li>
